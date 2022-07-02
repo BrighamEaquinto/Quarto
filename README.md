@@ -10,3 +10,9 @@ Most critical parts of the OPML header:
 
 - anchor-sections: false
     this option turns off the pesky chain icons next to headers
+    
+    
+ Most useful pages: 
+ - https://quarto.org/docs/reference/formats/opml.html#figures
+ - https://quarto.org/docs/output-formats/html-basics.html#commenting
+ - https://quarto.org/docs/output-formats/html-themes.html

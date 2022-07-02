@@ -1,0 +1,102 @@
+---
+title: "Dplyr-Pandas Quarto Work"
+author: "Brigham Eaquinto"
+date: "June 2022"
+format: 
+  html:
+    warning: false
+    freeze: auto
+    toc: true
+    toc-location: right 
+    comments:
+      hypothesis: false
+    
+    code-fold: false
+    code-copy: true
+    code-tools: true  
+    self-contained: true
+    anchor-sections: false
+---
+
+
+::: {.panel-tabset}
+
+### R's Tidyverse
+
+```{r}
+
+# install.packages("tidyverse")
+
+library(tidyverse)
+library(knitr)
+```
+
+```{r}
+
+iris %>% 
+  select(Species, Sepal.Width, Sepal.Length) %>% 
+  filter(
+    Sepal.Width >= 3, 
+    Species %in% c("setosa", "virginica")) %>% 
+  mutate(
+    Sepal_Ratio = round(Sepal.Width/Sepal.Length, 4),
+    small_ratio = ifelse(Sepal_Ratio < 0.7, 1, 0)) %>%
+  arrange(
+    Species, 
+    desc(Sepal.Length)) %>% 
+  head(5) %>% 
+  kable()
+
+```
+
+
+### Python's Pandas 
+
+```{python}
+
+# !pip install pandas
+
+import pandas as pd
+import numpy as np
+
+iris = (
+    pd.read_csv("https://gist.github.com/curran/a08a1080b88344b0c8a7/raw/0e7a9b0a5d22642a06d3d5b9bcbad9890c8ee534/iris.csv")
+    .rename(columns = 
+        {'sepal_length':"Sepal.Length", 
+        'sepal_width':"Sepal.Width", 
+        'petal_length':"Petal.Length", 
+        'petal_width':"Petal.Width",
+        'species':"Species"
+        })
+)
+
+```
+
+```{python}
+
+(iris
+.filter(["Species", "Sepal.Width", "Sepal.Length"])
+.query(
+  '`Sepal.Width` >= 3' and 
+  'Species in ["setosa", "virginica"]')
+#  .query('(`Sepal.Width` >= 3) & (Species in ["setosa", "virginica"])')
+.assign(
+  Sepal_Ratio = lambda x: round( x['Sepal.Width'] / x['Sepal.Length'], 4), 
+  small_ratio = lambda x: np.where(x['Sepal_Ratio'], 1, 0))
+.sort_values(["Species", "Sepal.Length"], ascending = [True, False])
+.head(5)
+)
+```
+
+:::
+
+<br> 
+
+#### Future Work: 
+
+- Making the new column in python doesn't take the name with a dot in it like tidyselect does
+- Complexify the ifelse to include multiple conditions
+
+
+
+<br><br>

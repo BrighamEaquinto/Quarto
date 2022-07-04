@@ -6,7 +6,7 @@ format:
   html:
     warning: false
     freeze: auto
-    toc: true
+    toc: true 
     toc-location: right 
     comments:
       hypothesis: false
@@ -88,7 +88,14 @@ iris = (
 )
 ```
 
+
 :::
+
+#### VSCode Quarto Notes
+
+The interactive terminal is very similar to the R Console. Whatever I do in this document is in the interactive terminal, and vice-verse. 
+
+
 
 <br> 
 

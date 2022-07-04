@@ -16,3 +16,8 @@ Most critical parts of the OPML header:
  - https://quarto.org/docs/tools/vscode.html#overview
  - https://quarto.org/docs/reference/cells/cells-jupyter.html
  - https://quarto.org/docs/get-started/computations/vscode.html
+
+
+Issues to Open: 
+- no ability to have the table of context default to showing all sections rather than collapsing 
+- no option to create from a template like RMD's have in RStudio

@@ -13,3 +13,6 @@ Most critical parts of the OPML header:
  - https://quarto.org/docs/reference/formats/opml.html#figures
  - https://quarto.org/docs/output-formats/html-basics.html#commenting
  - https://quarto.org/docs/output-formats/html-themes.html
+ - https://quarto.org/docs/tools/vscode.html#overview
+ - https://quarto.org/docs/reference/cells/cells-jupyter.html
+ - https://quarto.org/docs/get-started/computations/vscode.html
